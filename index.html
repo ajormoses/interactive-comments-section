@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive comments section</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <article class="main-article">
+          <div class="profile-header">
+            <div class="profile-header-user">
+              <div class="amy-avatar"></div>
+              <p class="amy-username"></p>
+            </div>
+            <p class="amy-createdAt"></p>
+          </div>
+          <div class="profile-content">
+            <p class="amy-content"></p>
+          </div>
+          <div class="profile-footer">
+            <div class="counter">
+              <div class="counter-plus">+</div>
+              <input type="text" class="count" value="12" readonly />
+              <div class="counter-minus">-</div>
+            </div>
+            <div class="reply">
+              <div class="reply-icon">
+                <svg width="14" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z"
+                    fill="#5357B6"
+                  />
+                </svg>
+              </div>
+              <p>Reply</p>
+            </div>
+          </div>
+        </article>
+        <article class="pseudo-article">
+          <div class="pseudo-article-content">
+            <textarea
+              name="text"
+              id="pseudo-article-content"
+              cols="30"
+              rows="8"
+              placeholder="Add a comment..."
+            ></textarea>
+            <div class="pseudo-article-wrap">
+              <div class="pseudo-avatar"></div>
+              <form action="/" id="pseudo-form-btn">
+                <input type="submit" value="REPLY" class="pseudo-btn" />
+              </form>
+            </div>
+          </div>
+        </article>
+        <article class="pseudo-reply-articles">
+          <!-- <div class="pseudo-reply-article">
+            <div class="pseudo-header">
+              <div class="pseudo-header-user">
+                <div class="julius-avatar"></div>
+                <p class="julius-username"></p>
+                <div class="julius-status">you</div>
+              </div>
+              <p class="julius-createdAt"></p>
+            </div>
+            <div class="pseudo-content">
+              <p class="julius-content"></p>
+            </div>
+            <div class="pseudo-footer">
+              <div class="counter">
+                <div class="counter-plus">+</div>
+                <input type="text" class="count" value="00" readonly />
+                <div class="counter-minus">-</div>
+              </div>
+              <div class="pseudo-edit-delete">
+                <button class="update">UPDATE<button>
+                <div class="pseudo-delete">
+                  <div class="pseudo-delete-icon">
+                    <svg
+                      width="12"
+                      height="14"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z"
+                        fill="#ED6368"
+                      />
+                    </svg>
+                  </div>
+                  <p>Delete</p>
+                </div>
+                <div class="pseudo-edit">
+                  <div class="pseudo-edit-icon">
+                    <svg
+                      width="14"
+                      height="14"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z"
+                        fill="#5357B6"
+                      />
+                    </svg>
+                  </div>
+                  <p>Edit</p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </article>
+        <article class="delete-comments">
+          <div class="del-coms">
+            <h1>Delete comment</h1>
+            <p>
+              Are you sure you want to delete this comment? This will remove the
+              comment and can't be undone.
+            </p>
+            <div class="del-coms-btns">
+              <button class="cancel-btn">NO, CANCEL</button>
+              <button class="del-btn" id="delete">YES, DELETE</button>
+            </div>
+          </div>
+        </article>
+        <article class="max-main-article">
+          <div class="profile-header">
+            <div class="profile-header-user">
+              <div class="max-avatar"></div>
+              <p class="max-username"></p>
+            </div>
+            <p class="max-createdAt"></p>
+          </div>
+          <div class="profile-content">
+            <p class="max-content"></p>
+          </div>
+          <div class="profile-footer">
+            <div class="counter">
+              <div class="counter-plus">+</div>
+              <input type="text" class="count" value="05" readonly />
+              <div class="counter-minus">-</div>
+            </div>
+            <a href="#max">
+              <div class="reply">
+                <div class="reply-icon">
+                  <svg
+                    width="14"
+                    height="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z"
+                      fill="#5357B6"
+                    />
+                  </svg>
+                </div>
+                <p>Reply</p>
+              </div>
+            </a>
+          </div>
+        </article>
+        <article class="pseudo-article">
+          <div class="pseudo-article-content">
+            <textarea
+              name="text"
+              id="pseudo-article-content"
+              cols="30"
+              rows="8"
+              placeholder="Add a comment..."
+            ></textarea>
+            <div class="pseudo-article-wrap">
+              <div class="pseudo-avatar"></div>
+              <form action="/" id="pseudo-form-btn">
+                <input type="submit" value="REPLY" class="pseudo-btn" />
+              </form>
+            </div>
+          </div>
+        </article>
+        <article class="comment-max-articles">
+          <div class="ramses-article">
+            <div class="profile-header">
+              <div class="profile-header-user">
+                <div class="ramses-avatar"></div>
+                <p class="ramses-username"></p>
+              </div>
+              <p class="ramses-createdAt"></p>
+            </div>
+            <div class="profile-content">
+              <p class="ramses-content"></p>
+            </div>
+            <div class="profile-footer">
+              <div class="counter">
+                <div class="counter-plus">+</div>
+                <input type="text" class="count" value="04" readonly />
+                <div class="counter-minus">-</div>
+              </div>
+              <div class="reply" id="reply">
+                <div class="reply-icon">
+                  <svg
+                    width="14"
+                    height="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z"
+                      fill="#5357B6"
+                    />
+                  </svg>
+                </div>
+                <p>Reply</p>
+              </div>
+            </div>
+          </div>
+          <div class="pseudo-article" id="pseudo-article">
+            <div class="pseudo-article-content">
+              <textarea
+                name="text"
+                id="pseudo-article-content"
+                class="ram_txtArea"
+                cols="30"
+                rows="8"
+                placeholder="Add a comment..."
+              ></textarea>
+              <div class="pseudo-article-wrap">
+                <div class="pseudo-avatar" id="pseudo-avatar"></div>
+                <form action="/" id="pseudo-form-btn" class="ram-pseudo-btn">
+                  <input
+                    type="submit"
+                    value="REPLY"
+                    class="pseudo-btn"
+                    id="pseudo-btn"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="ramses-footer-comment"></div>
+          <div class="pseudo-footer-comment">
+            <div class="pseudo-reply-article">
+              <div class="pseudo-header">
+                <div class="pseudo-header-user">
+                  <div class="julius-avatar">
+                    <img class="julius-avatar-img" src="" alt="" />
+                  </div>
+                  <p class="julius-username"></p>
+                  <div class="julius-status">you</div>
+                </div>
+                <p class="julius-createdAt"></p>
+              </div>
+              <div class="pseudo-content">
+                <p class="julius-content"></p>
+              </div>
+              <div class="pseudo-footer">
+                <div class="counter">
+                  <div class="counter-plus">+</div>
+                  <input type="text" class="count" value="02" readonly />
+                  <div class="counter-minus">-</div>
+                </div>
+                <div class="pseudo-edit-delete">
+                  <div class="update"></div>
+                  <div class="pseudo-delete">
+                    <div class="pseudo-delete-icon">
+                      <svg
+                        width="12"
+                        height="14"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z"
+                          fill="#ED6368"
+                        />
+                      </svg>
+                    </div>
+                    <p>Delete</p>
+                  </div>
+                  <div class="pseudo-edit">
+                    <div class="pseudo-edit-icon">
+                      <svg
+                        width="14"
+                        height="14"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z"
+                          fill="#5357B6"
+                        />
+                      </svg>
+                    </div>
+                    <p>Edit</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="julius-footer-comment">
+            <!-- <div class="pseudo-reply-article">
+              <div class="pseudo-header">
+                <div class="pseudo-header-user">
+                  <div class="julius-avatar">
+                    <img class="julius-avatar-img" src="" alt="" />
+                  </div>
+                  <p class="julius-username"></p>
+                  <div class="julius-status">you</div>
+                </div>
+                <p class="julius-createdAt"></p>
+              </div>
+              <div class="pseudo-content">
+                <p class="julius-content"></p>
+              </div>
+              <div class="pseudo-footer">
+                <div class="counter">
+                  <div class="counter-plus">+</div>
+                  <input type="text" class="count" value="00" readonly />
+                  <div class="counter-minus">-</div>
+                </div>
+                <div class="pseudo-edit-delete">
+                  <div class="update"></div>
+                  <div class="pseudo-delete">
+                    <div class="pseudo-delete-icon">
+                      <svg
+                        width="12"
+                        height="14"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z"
+                          fill="#ED6368"
+                        />
+                      </svg>
+                    </div>
+                    <p>Delete</p>
+                  </div>
+                  <div class="pseudo-edit">
+                    <div class="pseudo-edit-icon">
+                      <svg
+                        width="14"
+                        height="14"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z"
+                          fill="#5357B6"
+                        />
+                      </svg>
+                    </div>
+                    <p>Edit</p>
+                  </div>
+                </div>
+              </div> -->
+          </div>
+        </article>
+        <article class="pseudo-article-footer" id="max">
+          <div class="pseudo-article-footer-content">
+            <textarea
+              name="text"
+              id="pseudo-article-footer-content"
+              cols="30"
+              rows="8"
+              placeholder="Add a comment..."
+            ></textarea>
+            <div class="pseudo-article-footer-wrap">
+              <div class="pseudo-avatar-footer"></div>
+              <form action="/" id="footer-btn">
+                <input type="submit" value="SEND" class="pseudo-btn" />
+              </form>
+            </div>
+          </div>
+        </article>
+      </section>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://github.com/ajormoses">AJOR MOSES</a>.
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
